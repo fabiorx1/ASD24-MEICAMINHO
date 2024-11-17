@@ -6,6 +6,7 @@ import locale, warnings
 
 warnings.filterwarnings("ignore")
 locale.setlocale(locale.LC_ALL, 'pt_br')
+print(locale.locale_alias)
 cempre.initialize(['MG', 'SP', 'RJ'])
 ufs = cempre.get_ufs()
 divisoes = cempre.get_divisoes()
