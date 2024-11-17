@@ -5,13 +5,13 @@ import cempre, ibge
 import locale, warnings
 
 warnings.filterwarnings("ignore")
-print(locale.locale_alias)
 cempre.initialize(['MG', 'SP', 'RJ'])
 ufs = cempre.get_ufs()
 divisoes = cempre.get_divisoes()
 brl = lambda v: locale.currency(v, grouping=True, symbol='R$')
 brn = lambda v: locale.format_string('%d', v, grouping=True)
 
+st.write(str(locale.locale_alias))
 st.write(
     """
     # Olá, empreendedor!
