@@ -24,19 +24,19 @@ st.write(
 
 with st.container(border=True):
   st.write("## Região")
-  estado = st.selectbox("Selecione seu estado:", ufs, index=10)
+  estado = st.selectbox("Selecione seu estado:", ufs)
   if estado:
     df = cempre.get_dataframe_by_uf(estado)
     cidades = df[df.columns[0]].unique()
-    cidade = st.selectbox("Selecione sua cidade:", cidades, index=0)
+    cidade = st.selectbox("Selecione sua cidade:", cidades)
     if cidade: df = df[df[df.columns[0]] == cidade]
 
 with st.container(border=True):
   st.write("## Setor")
-  setor = st.selectbox("Selecione seu setor:", divisoes, index=5)
+  setor = st.selectbox("Selecione seu setor:", divisoes)
   if setor:
     cnaes = cempre.get_cnaes(setor).values
-    cnae = st.selectbox("Selecione sua atividade:", cnaes, index=0)
+    cnae = st.selectbox("Selecione sua atividade:", cnaes)
     if cidade and cnae:
       line = df[df[df.columns[2]] == cnae].reset_index(drop=True)
       salario_medio = line[line.columns[-1]][0]
