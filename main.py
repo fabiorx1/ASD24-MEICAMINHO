@@ -5,12 +5,11 @@ import cempre, ibge
 import locale, warnings
 
 warnings.filterwarnings("ignore")
-locale.setlocale(locale.LC_ALL, 'portuguese_brazil')
+# locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 cempre.initialize(['MG', 'SP', 'RJ'])
 ufs = cempre.get_ufs()
-
 divisoes = cempre.get_divisoes()
-brl = lambda v: locale.currency(v, grouping=True, symbol=True)
+brl = lambda v: locale.currency(v, grouping=True, symbol='R$')
 brn = lambda v: locale.format_string('%d', v, grouping=True)
 
 st.write(
