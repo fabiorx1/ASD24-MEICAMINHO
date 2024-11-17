@@ -5,7 +5,7 @@ import cempre, ibge
 import locale, warnings
 
 warnings.filterwarnings("ignore")
-locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+# locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 cempre.initialize(['MG', 'SP', 'RJ'])
 ufs = cempre.get_ufs()
 divisoes = cempre.get_divisoes()
