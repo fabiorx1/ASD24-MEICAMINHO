@@ -1,3 +1,5 @@
+#  MEI CAMINHO © 2024 by Fabio Augusto Ramalho, Matheus de Sousa Franco, Sofia Fernandes Cerqueira is licensed under CC BY-NC-SA 4.0 
+
 import streamlit as st
 import matplotlib.pyplot as plt
 import cempre, ibge
