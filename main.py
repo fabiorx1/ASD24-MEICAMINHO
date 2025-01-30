@@ -5,15 +5,19 @@ import cempre, ibge
 import locale, warnings
 
 warnings.filterwarnings("ignore")
-# locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 cempre.initialize(['MG', 'SP', 'RJ'])
 ufs = cempre.get_ufs()
 divisoes = cempre.get_divisoes()
-brl = lambda v: '%.2f'%v
-brn = lambda v: '%d'%v
+brl = lambda v: locale.currency(v, grouping=True, symbol='R$')
+brn = lambda v: locale.format_string('%d', v, grouping=True)
 
 st.write(
     """
+     MEI CAMINHO © 2024 by Fabio Augusto Ramalho, Matheus de Sousa Franco, Sofia Fernandes Cerqueira
+     is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International.
+     To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/
+    
     # Olá, empreendedor!
     ## E ai, tá MEI perdido?
     Com as informações certas, você já tem **MEI caminho andado!**

@@ -1,3 +1,7 @@
 .venv
 **__pycache__**
 *.pickle
+.firebase
+.firebaserc
+firebase.json
+*.cache
