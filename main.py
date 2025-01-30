@@ -1,16 +1,15 @@
 import streamlit as st
-import pandas as pd
 import matplotlib.pyplot as plt
 import cempre, ibge
-import locale, warnings
+import warnings
 license = """ <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/institutoasw/hackathon-aswd24-mei-caminho">MEI CAMINHO</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://meicaminho.com.br/">Fabio Augusto Ramalho, Matheus de Sousa Franco, Sofia Fernandes Cerqueira</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a></p> """
 warnings.filterwarnings("ignore")
-locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
+# locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 cempre.initialize(['MG', 'SP', 'RJ'])
 ufs = cempre.get_ufs()
 divisoes = cempre.get_divisoes()
-brl = lambda v: locale.currency(v, grouping=True, symbol='R$')
-brn = lambda v: locale.format_string('%d', v, grouping=True)
+brl = lambda v: ('R$ %.2f' % v).replace('.', 'X').replace(',', '.').replace('X', ',')
+brn = lambda v: '%.2f' % v
 
 st.html(license)
 st.write(
@@ -213,20 +212,3 @@ if cnae and cidade:
 
                 É recomendável elaborar o demonstrativo de resultados mensalmente para acompanhar o desempenho financeiro da empresa e tomar decisões baseadas em dados atualizados.
                """)
-
-
-# Button to generate chart
-    # # Data for the bar chart
-    # data = pd.DataFrame({
-    #     "Option": [selected_option],
-    #     "Value": [number_input]
-    # })
-    
-    # # Plot the bar chart
-    # fig, ax = plt.subplots()
-    # ax.bar(data["Option"], data["Value"], color="blue")
-    # ax.set_ylabel("Value")
-    # ax.set_title("Bar Chart")
-    
-    # # Show the chart
-    # st.pyplot(fig)
