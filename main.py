@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import cempre, ibge
 import locale, warnings
-
+license = """ <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/institutoasw/hackathon-aswd24-mei-caminho">MEI CAMINHO</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://meicaminho.com.br/">Fabio Augusto Ramalho, Matheus de Sousa Franco, Sofia Fernandes Cerqueira</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a></p> """
 warnings.filterwarnings("ignore")
 locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 cempre.initialize(['MG', 'SP', 'RJ'])
@@ -12,12 +12,9 @@ divisoes = cempre.get_divisoes()
 brl = lambda v: locale.currency(v, grouping=True, symbol='R$')
 brn = lambda v: locale.format_string('%d', v, grouping=True)
 
+st.html(license)
 st.write(
     """
-     MEI CAMINHO © 2024 by Fabio Augusto Ramalho, Matheus de Sousa Franco, Sofia Fernandes Cerqueira
-     is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International.
-     To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/
-    
     # Olá, empreendedor!
     ## E ai, tá MEI perdido?
     Com as informações certas, você já tem **MEI caminho andado!**
